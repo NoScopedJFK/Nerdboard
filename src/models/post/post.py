@@ -1,0 +1,36 @@
+import uuid
+from datetime import datetime
+
+from src.common.database import Database
+
+
+class Post(object):
+
+    def __init__(self, author, email, aoc, title, description, picture=None, _id=None):
+        self.author = author
+        self.email = email
+        self.aoc = aoc
+        self.title = title
+        self.description = description
+        self.picture = picture
+        self._id = uuid.uuid4().hex if _id is None else _id
+
+    def save_to_mongo(self):
+        Database.insert(collection='posts',
+                        data=self.json())
+
+    def json(self):
+        return {
+            '_id': self._id,
+            'author': self.author,
+            'email': self.email,
+            'aoc': self.aoc,
+            'title': self.title,
+            'description': self.description,
+            'picture': self.picture,
+        }
+
+    @classmethod
+    def from_mongo(cls, id):
+        post_data = Database.find_one(collection='posts', query={'_id': id})
+        return cls(**post_data)
