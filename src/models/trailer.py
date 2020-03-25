@@ -4,7 +4,7 @@ from datetime import datetime
 from src.common.database import Database
 
 
-class Post(object):
+class Trailer(object):
 
     def __init__(self, author, email, aoc, title, description, picture=None, _id=None):
         self.author = author
@@ -16,7 +16,7 @@ class Post(object):
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def save_to_mongo(self):
-        Database.insert(collection='posts',
+        Database.insert(collection='pending_trailers',
                         data=self.json())
 
     def json(self):
@@ -32,5 +32,5 @@ class Post(object):
 
     @classmethod
     def from_mongo(cls, id):
-        post_data = Database.find_one(collection='posts', query={'_id': id})
+        post_data = Database.find_one(collection='pending_trailers', query={'_id': id})
         return cls(**post_data)
