@@ -1,15 +1,96 @@
-#login-form {
-    margin-top: 25px;
+body {
+	background-color: #EEEEEE;
 }
 
-.page-form {
-    max-width: 400px;
+#sidebar {
+	width: 20%;
+	float: left;
+}
+
+#logo_header {
+	background-color: #194F90;
+	height: 5vh;
+	float:top;
+
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 2vw;
+	color: #FDF8F8;
+	text-align: center;
+}
+
+#events {
+	height: 95vh;
+	float:bottom;
+}
+
+#trailers {
+	background-color: #555555;
+	width: 80%;
+	float: right;
+	border-style: solid;
+	border-color: #194F90;
+	border-width: 5px
+
+}
+
+#video_player {
+	background-color: #202224;
+	height: 80vh;
+	float: top;
+}
+
+#trailer_description {
+	background-color: #194F90;
+	height: 20vh;
+	float: bottom;
+}
+
+
+
+.text1 {
+	position: absolute;
+	width: 232px;
+	height: 125px;
+	left: 10px;
+	top: 65px;
+
+	font-family: Droid Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 20px;
+	/* or 83% */
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.description_title {
+	position: absolute;
+	width: 945px;
+	height: 45px;
+	left: 280px;
+	top: 560px;
+
+	font-family: Mukta Mahee;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	line-height: 20px;
+	/* or 80% */
+	color: #E2E2E2;
+}
+
+.logo_text {
+	position: absolute;
+	width: 238px;
+	height: 31px;
+	left: 12px;
+	top: 6px;
+
+	background: #E2E2E2;
+	mix-blend-mode: normal;
 }
 
 html,body{
-background-image: url('https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg');
-background-size: cover;
-background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
