@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect
 import os
 
 from src.common.database import Database
-from src.models.trailer import Post
+from src.models.trailer import Trailer
 
 app = Flask(__name__)
 
@@ -14,9 +14,10 @@ def initialize_database():
 
 uploads_dir = os.path.join(app.root_path, 'submissions')
 
+
 @app.route('/')
 def upload_file():
-    return render_template("fileform.html")
+    return render_template("display.html")
 
 # Handles a file upload
 @app.route('/handleUpload', methods=['POST'])
@@ -32,8 +33,8 @@ def handle_file_upload():
         photo = request.files['photo']
         if photo.filename != '':
             photo.save(os.path.join(uploads_dir, photo.filename))
-            new_post = Post(author, email, aoc, title, summary)
-            Post.save_to_mongo(new_post)
+            new_post = Trailer(author, email, aoc, title, summary)
+            Trailer.save_to_mongo(new_post)
 
     return redirect(url_for('upload_file'))
 
