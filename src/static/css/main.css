@@ -9,17 +9,17 @@ body {
 
 #logo_header {
 	background-color: #194F90;
-	height: 5vh;
+	height: calc(20vw / 6);
 	float:top;
 
 	font-family: 'Share Tech Mono', monospace;
-	font-size: 2vw;
+	font-size: 2.35vw;
 	color: #FDF8F8;
 	text-align: center;
 }
 
 #events {
-	height: 95vh;
+	height: 100%;
 	float:bottom;
 }
 
