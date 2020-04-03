@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, url_for, redirect
 import os
 
-from src.common.database import Database
-from src.models.trailer import Trailer
+#from src.common.database import Database
+#from src.models.trailer import Trailer
+
+from common.database import Database
+from models.trailer import Trailer
 
 app = Flask(__name__)
 
@@ -37,6 +40,21 @@ def handle_file_upload():
             Trailer.save_to_mongo(new_post)
 
     return redirect(url_for('upload_file'))
+
+# Submission Choice Page
+@app.route('/submit')
+def choose_submission():
+    return render_template("submit.html")
+
+# Submit Project
+@app.route('/submit-project')
+def submit_project():
+    return render_template("submit-project.html")
+
+# Submit Event
+@app.route('/submit-event')
+def submit_event():
+    return render_template("submit-event.html")
 
 
 if __name__ == '__main__':

@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<!-- Page Attributes -->
-	<title>Comp Sci Corner | Submit a Project</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Bootstrap and Dependencies -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-
+{% extends "base.html" %}
+{% block content %}
 <body style="background-color:#BAC2D1">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color:#003098">
 			<a class="navbar-brand" href="submit.html"><h2 style="font-family:'Share Tech Mono','Lucida Console',Monaco,monospace">Comp Sci Corner</h2></a>
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="submit.html" id="navbardrop" data-toggle="dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 						Make a Submission
 					</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Submit a Project</a>
-						<a class="dropdown-item" href="submit-event.html">Submit an Event</a>
+						<a class="dropdown-item" href="{{ url_for('submit_project') }}">Submit a Project</a>
+						<a class="dropdown-item" href="{{ url_for('submit_event') }}">Submit an Event</a>
 					</div>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#">Visit Display</a>
+				  <a class="nav-link" href="{{ url_for('upload_file') }}">Visit Display</a>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="#">Admin Tools</a>
@@ -50,28 +38,13 @@
 				<div class="custom-control custom-checkbox">
 					<input type="checkbox" class="custom-control-input bg-light" id="display-email" name="display-email">
 					<label class="custom-control-label h5" for="display-email">Display my email with my project on the comp sci board</label>
-				</div>
-				<div class="form-group custom-control-inline w-75 mt-4">
-					<label for="aoc" class="h3 mr-3 w-50">Your AOC: </label>
-					<input type="text" class="form-control bg-light" placeholder="Enter AOC" id="aoc" name="aoc" required>
-				</div><br/>
-				<div class="form-group custom-control-inline w-75">
-					<label for="choose-image" class="h3 mr-3 w-100">A Picture of You (Optional): </label>
-					<div class="custom-file custom-control-inline">
-						<input type="file" class="custom-file-input" id="choose-image" name="profile-pic">
-						<label class="custom-file-label bg-light" for="choose-image">Choose File</label>
-					</div>
 				</div><hr class="w-75" style="margin-left:5%"/>
 				<div class="form-group custom-control-inline w-75">
 					<label for="title" class="h3 mr-3 w-75">Title of Your Project: </label>
 					<input type="text" class="form-control bg-light" placeholder="Enter title" id="title" name="title" required>
 				</div><br/>
 				<div class="form-group">
-					<label for="description" class="h3">Tell us about your project in 1-2 sentences: </label>
-					<textarea rows="3" maxlength="140" class="form-control bg-light w-75" placeholder="1-2 sentences (140 characters)." id="description" name="description" required></textarea>
-				</div>
-				<div class="form-group">
-					<label for="choose-trailer" class="h3 mr-3 w-75">Add a picture or 10-20 second video: </label>
+					<label for="choose-trailer" class="h3 mr-3 w-75">Add a picture or 10-20 second video (see submission guidelines on the right): </label>
 					<div class="custom-file custom-control-inline">
 						<input type="file" class="custom-file-input" id="choose-trailer" name="trailer">
 						<label class="custom-file-label bg-light w-50" for="choose-trailer">Choose File</label>
@@ -91,4 +64,4 @@
 		</div>
 	</div>
 </body>
-</html>
+{% endblock %}

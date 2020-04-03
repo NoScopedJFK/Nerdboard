@@ -1,7 +1,8 @@
 import uuid
 from datetime import datetime
 
-from src.common.database import Database
+#from src.common.database import Database
+from common.database import Database
 
 
 class Trailer(object):
