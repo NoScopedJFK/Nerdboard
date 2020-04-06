@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="container">
+
     <div id="sidebar">
         <div id="logo_header">
             Comp Sci Corner
@@ -9,14 +10,30 @@
             Events
         </div>
     </div>
+
     <div id="trailers">
         <div id="video_player">
-            Video Player
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <video id="video" class="carousel-item active" width="100%" controls autoplay muted>
+                        <source src="{{videos[0]}}" type="video/mp4">
+                    </video>
+                    {%for i in range(1, len)%}
+                        <video id="video" class="carousel-item" width="100%" controls autoplay muted>
+                            <source src="{{videos[i]}}" type="video/mp4">
+                        </video>
+                    {%endfor%}
+                </div>
+            </div>
         </div>
+
         <div id="trailer_description">
             Trailer Descriptions
         </div>
-
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/display.js') }}"></script>
+
+
 {% endblock %}

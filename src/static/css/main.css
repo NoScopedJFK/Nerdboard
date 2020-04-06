@@ -1,5 +1,5 @@
 body {
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 }
 
 #sidebar {
@@ -38,6 +38,10 @@ body {
 	height: 80vh;
 	float: top;
 }
+
+#video {
+}
+
 
 #trailer_description {
 	background-color: #194F90;

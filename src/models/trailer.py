@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from moviepy.editor import *
 
 #from src.common.database import Database
 from common.database import Database
@@ -35,3 +36,9 @@ class Trailer(object):
     def from_mongo(cls, id):
         post_data = Database.find_one(collection='pending_trailers', query={'_id': id})
         return cls(**post_data)
+
+    @classmethod
+    def to_gif(cls, video):
+        clip = (VideoFileClip(video))
+        clip.preview()
+        clip.write_gif("use_your_head.gif")
