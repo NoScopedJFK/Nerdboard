@@ -11,7 +11,7 @@ wsgi_app = app.wsgi_app
 def home():
     """Renders a Home page."""
 	# Testing 123 Fuck Face
-    return render_template("Hello")
+    return "Hello"
  
 if __name__=="__main__":
   app.run(debug=True)
